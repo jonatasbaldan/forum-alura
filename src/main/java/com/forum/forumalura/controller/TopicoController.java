@@ -5,6 +5,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +39,7 @@ public class TopicoController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<DadosListagemTopico>> listar(Pageable pageable) {
+    public ResponseEntity<Page<DadosListagemTopico>> listar(@PageableDefault(size = 10, sort = {"dataCriacao"}, direction = Sort.Direction.ASC) Pageable pageable) {
         Page<DadosListagemTopico> page = repository
                 .findAllByAtivoTrue(pageable)
                 .map(DadosListagemTopico::new);
