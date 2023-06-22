@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/107167711/226222830-db2f671b-3e9f-4bd5-bb1e-f339a85abe3a.png)
+
 # Introdução
 
 O **Forum Alura** é um projeto para o desafio **Challenge ONE Back End**, que consiste em criar uma **API REST**, usando ``Spring`` com Java e ``JPA`` com o ``Hibernate``, com o banco de dados ``MySQL``, aonde permite o usuário criar, mostrar, atualizar e deletar um tópico, ou seja, um **CRUD**.
