@@ -56,7 +56,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZm9ydW0uY29t
 ### Retornando todos
 
 **GET /topico**
+
 **status** `200`
+
 Retorna uma página de tópico, mostrando apenas os 10 primeiros tópico em ordem de data de criação.
 ```JSON
 
@@ -122,6 +124,7 @@ Retorna uma página de tópico, mostrando apenas os 10 primeiros tópico em orde
 É possível customizar como será o retorno dos tópicos, fornecendo parâmetros pela URL., por exemplo:
 
 **GET /topico?size=2**
+
 Mostrando apenas 2 tópicos.
 ```JSON
 {
@@ -156,6 +159,7 @@ Mostrando apenas 2 tópicos.
 ```
 
 **GET /topico?page=1**
+
 Retornando a segunda página.
 ```JSON
 {
@@ -191,6 +195,7 @@ Retornando a segunda página.
 ### Retornando o tópico através do id
 
 **GET /topico/{id}**
+
 Retorna o tópico pelo id.
 ```JSON
 {
@@ -207,7 +212,9 @@ Retorna o tópico pelo id.
 ## Criando um novo tópico
 
 **POST /topico**
+
 **status** `201`
+
 Cria um novo tópico, sendo as chaves `titulo`, `mensagem`, `autor` e `curso` obrigatórios.
 ```JSON
 {
@@ -221,7 +228,9 @@ Cria um novo tópico, sendo as chaves `titulo`, `mensagem`, `autor` e `curso` ob
 ## Atualizando
 
 **PUT /topico/{id}**
+
 **status** `200`
+
 Atualiza um tópico fornecido pelo id na URL, podendo atualizar o titulo, a mensagem ou o estado (podendo ser ABERTO ou FECHADO) do tópico, sendo todos eles opcionais.
 ```JSON
 {
@@ -232,7 +241,9 @@ Atualiza um tópico fornecido pelo id na URL, podendo atualizar o titulo, a mens
 ## Deletando
 
 **DELETE /topico/{id}**
+
 **status** `204`
+
 Deleta o tópico fornecido pelo id na URL.
 
 ## Erros status
