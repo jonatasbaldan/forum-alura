@@ -25,7 +25,7 @@ Antes de poder manipular os tópicos, é necessário gerar um JWT fornecendo um 
 
 ## Gerando um JWT
 
-POST /login
+**POST /login**
 ```json
 {
 	"usuario": "usuario@admin.com",
@@ -33,7 +33,7 @@ POST /login
 }
 ```
 
-Retorna um JWT Token
+Retorna um **JWT Token**
 ```JSON
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZm9ydW0uY29tIiwic3ViIjoidXN1YXJpb0BhZG1pbi5jb20iLCJleHAiOjE2ODc0NDE4MzJ9.U5OKCOiYquc_Cdhd5EQlNCP1EenkpskU0EZrGt0nFcM"
@@ -42,7 +42,7 @@ Retorna um JWT Token
 
 O token tem que ser passado no Cabeçalho/Header de todas as requisições, usando o Cabeçalho `Authorization`, exemplo:
 
-GET /topico
+**GET /topico**
 ```HTTP
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZm9ydW0uY29tIiwic3ViIjoidXN1YXJpb0BhZG1pbi5jb20iLCJleHAiOjE2ODc0NDE4MzJ9.U5OKCOiYquc_Cdhd5EQlNCP1EenkpskU0EZrGt0nFcM
 ```
@@ -56,7 +56,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZm9ydW0uY29t
 ### Retornando todos
 
 **GET /topico**
-**status** ``200``
+**status** `200`
 Retorna uma página de tópico, mostrando apenas os 10 primeiros tópico em ordem de data de criação.
 ```JSON
 
@@ -121,7 +121,7 @@ Retorna uma página de tópico, mostrando apenas os 10 primeiros tópico em orde
 
 É possível customizar como será o retorno dos tópicos, fornecendo parâmetros pela URL., por exemplo:
 
-**GET /topico?size=2******
+**GET /topico?size=2**
 Mostrando apenas 2 tópicos.
 ```JSON
 {
@@ -207,7 +207,7 @@ Retorna o tópico pelo id.
 ## Criando um novo tópico
 
 **POST /topico**
-**status** ``201``
+**status** `201`
 Cria um novo tópico, sendo as chaves `titulo`, `mensagem`, `autor` e `curso` obrigatórios.
 ```JSON
 {
