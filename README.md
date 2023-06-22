@@ -196,6 +196,8 @@ Retornando a segunda página.
 
 **GET /topico/{id}**
 
+**status** `200`
+
 Retorna o tópico pelo id.
 ```JSON
 {
@@ -248,10 +250,10 @@ Deleta o tópico fornecido pelo id na URL.
 
 ## Erros status
 
-`400` - Possível erro ao enviar o JSON como resposta, retornando uma mensagem de erro descrevendo o possível problema;
-`403` - Acesso proibido, sendo o Token JWT inválido, expirado ou inexistente;
-`404` - Não foi encontrado nenhum recurso no lado do servidor;
-`5xx` - Erro no lado do servidor.
+- `400` - Possível erro ao enviar o JSON como resposta, retornando uma mensagem de erro descrevendo o possível problema;
+- `403` - Acesso proibido, sendo o Token JWT inválido, expirado ou inexistente;
+- `404` - Não foi encontrado nenhum recurso no lado do servidor;
+- `5xx` - Erro no lado do servidor.
 
 # Iniciando o projeto
 
