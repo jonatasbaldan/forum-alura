@@ -47,7 +47,7 @@ O token tem que ser passado no Cabeçalho/Header de todas as requisições, usan
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBUEkgZm9ydW0uY29tIiwic3ViIjoidXN1YXJpb0BhZG1pbi5jb20iLCJleHAiOjE2ODc0NDE4MzJ9.U5OKCOiYquc_Cdhd5EQlNCP1EenkpskU0EZrGt0nFcM
 ```
 
-> Por padrão, o token tem uma duração de 2 horas.
+> Por padrão, o token tem a duração de 2 horas.
 
 ## Criando, listando, atualizando e deletando os tópicos
 
