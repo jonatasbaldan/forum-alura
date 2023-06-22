@@ -1,6 +1,8 @@
 package com.forum.forumalura.infra.exception;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -34,33 +36,43 @@ public class TratadorDeErros {
     }
 
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
-    public ResponseEntity tratarErroIntegrityConstraintViolation(SQLIntegrityConstraintViolationException ex) {
-        return ResponseEntity.badRequest().body("topico duplicado");
+    public ResponseEntity tratarErroIntegrityConstraintViolation() {
+        return ResponseEntity.badRequest().body(new DadoErro("topico duplicado"));
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity tratarErroDataIntegrityViolationException() {
+        return ResponseEntity.badRequest().body(new DadoErro("topico duplicado"));
     }
 
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity tratarErro400(HttpMessageNotReadableException ex) {
-        return ResponseEntity.badRequest().body(ex.getMessage());
+        return ResponseEntity.badRequest().body(new DadoErro(ex.getMessage()));
     }
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity tratarErroBadCredentials() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DadoErro("Credenciais inválidas"));
     }
 
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity tratarErroAuthentication() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DadoErro("Falha na autenticação"));
     }
 
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity tratarErroAcessoNegado() {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acesso negado");
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new DadoErro("Acesso negado"));
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity tratarErro500(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DadoErro(ex.getLocalizedMessage()));
+    }
+
+    @ExceptionHandler(JWTVerificationException.class)
+    public ResponseEntity tratarErro403(Exception ex) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new DadoErro(ex.getMessage()));
     }
 }

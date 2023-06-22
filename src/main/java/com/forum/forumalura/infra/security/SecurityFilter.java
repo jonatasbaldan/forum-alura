@@ -1,5 +1,6 @@
 package com.forum.forumalura.infra.security;
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.forum.forumalura.domain.usuario.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
